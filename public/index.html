@@ -51,12 +51,12 @@
   <script>
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker
-        .register('service-worker.js')
+        .register('/service-worker.js')
         .then((registration) => {
-          console.log('Service Worker Registered!');
+          console.log('Service Worker Registered!', registration);
         })
         .catch((error) => {
-          console.log('Service Worker Registration Failed!');
+          console.log('Service Worker Registration Failed!:');
           console.log(error);
         });
     }
