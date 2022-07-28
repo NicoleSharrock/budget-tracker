@@ -6,7 +6,6 @@ Giving users a fast and easy way to track their money and allowing them to acces
 ## Table Of Contents
 * [General_info](#story)
 * [Technologies](#built-with)
-* [Deployable link](#deployable-link) 
 * [Screenshot](#screenshot)
 
 
@@ -20,9 +19,6 @@ As an avid traveler I want to be able to track my withdrawals and deposits with 
 * MongoDB
 * Mongoose
 * Progressive Web Application
-
-
-## Deployable Link
 
 
 ## Screenshot 
