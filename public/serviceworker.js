@@ -1,17 +1,17 @@
-const CACHE_NAME = 'static-cache-v2';
-const DATA_CACHE_NAME = 'data-cache-v1';
-
 const FILES_TO_CACHE = [
     '/',
-    '/index.html',
-    '/js/index.js',
-    '/js/idb.js',
-    '/manifest.json',
-    '/app.js',
-    './css/style.css',
+    'manifest.json',
+    'index.html',
+    'css/style.css',
+    'js/index.js',
+    "https://cdn.jsdelivr.net/npm/chart.js@2.8.0",
+    'js/idb.js',
     '/icons/icon-128x128.png',
-    '/icons/icon-144x144.png'
+    '/icons/icon-144x144.png',
 ];
+
+const CACHE_NAME = "static-cache-v2";
+const DATA_CACHE_NAME = "data-cache-v1";
 
 // Install the service worker
 self.addEventListener('install', function (evt) {
@@ -71,15 +71,9 @@ self.addEventListener('fetch', function (evt) {
     }
 
     evt.respondWith(
-        fetch(evt.request).catch(function () {
-            return caches.match(evt.request).then(function (response) {
-                if (response) {
-                    return response;
-                } else if (evt.request.headers.get('accept').includes('text/html')) {
-                    // return the cached home page for all requests for html pages
-                    return caches.match('/');
-                }
-            });
+        caches.match(evt.request).then(function (response) {
+            return response || fetch(evt.request);
         })
     );
 });
+
